@@ -1,4 +1,3 @@
-import { error } from '@sveltejs/kit';
 import { names_to_slug } from '$lib/sets/all_sets.js';
 
 export function load() {

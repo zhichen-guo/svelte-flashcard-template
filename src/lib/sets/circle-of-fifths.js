@@ -1,27 +1,99 @@
 export const circle_of_fifths = {
-    "C": "F",
-    "F": "B♭",
-    "B♭": "E♭",
-    "A♭": "D♭/C♯",
-    "D♭/C♯": "F♯/G♭",
-    "F♯/G♭": "B/C♭",
-    "B/C♭": "E",
-    "E": "A",
-    "A": "D",
-    "D": "G",
-    "G": "C"
+    formats: ["forward"],
+    cards: [
+        {
+			front: "C",
+			back: "F"
+		},
+        {
+			front: "F",
+			back: "B♭"
+		},
+        {
+			front: "B♭",
+			back: "E♭"
+		},
+        {
+			front: "A♭",
+			back: "D♭/C♯"
+		},
+        {
+			front: "D♭/C♯",
+			back: "F♯/G♭"
+		},
+        {
+			front: "F♯/G♭",
+			back: "B/C♭"
+		},
+        {
+			front: "B/C♭",
+			back: "E"
+		},
+        {
+			front: "E",
+			back: "A"
+		},
+        {
+			front: "A",
+			back: "D"
+		},
+        {
+			front: "D",
+			back: "G"
+		},
+        {
+			front: "G",
+			back: "C"
+		}
+    ]
 }
 
 export const circle_of_fourths = {
-    "F": "C",
-    "B♭": "F",
-    "E♭": "B♭",
-    "D♭/C♯": "A♭",
-    "F♯/G♭": "D♭/C♯",
-    "B/C♭": "F♯/G♭",
-    "E": "B/C♭",
-    "A": "E",
-    "D": "A",
-    "G": "D",
-    "C": "G"    
+    formats: ["forward"],
+    cards: [
+        {
+			front: "F",
+			back: "C"
+		},
+        {
+			front: "B♭",
+			back: "F"
+		},
+        {
+			front: "E♭",
+			back: "B♭"
+		},
+        {
+			front: "D♭/C♯",
+			back: "A♭"
+		},
+        {
+			front: "F♯/G♭",
+			back: "D♭/C♯"
+		},
+        {
+			front: "B/C♭",
+			back: "F♯/G♭"
+		},
+        {
+			front: "E",
+			back: "B/C♭"
+		},
+        {
+			front: "A",
+			back: "E"
+		},
+        {
+			front: "D",
+			back: "A"
+		},
+        {
+			front: "G",
+			back: "D"
+		},
+        {
+			front: "C",
+			back: "G"
+		}  
+    ]
 }
