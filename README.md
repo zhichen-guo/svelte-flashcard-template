@@ -1,7 +1,7 @@
-* To build container: `docker build -t jazz-flashcards .`
-* To run container: `docker run -it --name jazz-flashcards jazz-flashcards`
-* To enter container: `docker exec -it jazz-flashcards bash`
-* To remove container: `docker container rm jazz-flashcards`
+* To build container: `docker build -t svelte-flashcard-template .`
+* To run container: `docker run -it -v .:/app -p 5173:5173 --name svelte-flashcard-template svelte-flashcard-template`
+* To enter container: `docker exec -it svelte-flashcard-template bash`
+* To remove container: `docker container rm svelte-flashcard-template`
 
 # sv
 
