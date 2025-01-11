@@ -1,5 +1,4 @@
 export const circle_of_fifths = {
-    formats: ["forward"],
     cards: [
         {
 			front: "C",
@@ -49,7 +48,6 @@ export const circle_of_fifths = {
 }
 
 export const circle_of_fourths = {
-    formats: ["forward"],
     cards: [
         {
 			front: "F",
