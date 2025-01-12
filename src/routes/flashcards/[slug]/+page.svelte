@@ -3,7 +3,7 @@
 </script>
 
 <ul>
-    {#each data.flashcards as { front, back }}
+    {#each data.set.cards as { front, back }}
         <li>{front}: {back}</li>
     {/each}
 </ul>

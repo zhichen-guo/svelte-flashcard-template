@@ -7,6 +7,6 @@ export function load({ params }) {
     if (!set) error(404);
     
     return { 
-        flashcards: set.cards
+        set
     };
 }

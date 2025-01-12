@@ -1,4 +1,5 @@
 export const circle_of_fifths = {
+	name: "Circle of Fifths",
     cards: [
         {
 			front: "C",
@@ -48,6 +49,7 @@ export const circle_of_fifths = {
 }
 
 export const circle_of_fourths = {
+	name: "Circle of Fourths",
     cards: [
         {
 			front: "F",
