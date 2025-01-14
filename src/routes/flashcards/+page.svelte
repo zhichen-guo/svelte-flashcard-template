@@ -14,11 +14,3 @@
         </a>
     {/each}
 </div>
-
-<!-- <div class='h-56 w-4/12 relative'>
-    <div class='absolute w-full h-full bg-gray-100 rounded-lg drop-shadow-md z-30 flex p-4'>
-        <a href="/flashcards/{slug}">{name}</a>
-    </div>
-    <div class='absolute w-full h-full bg-gray-100 rounded-lg drop-shadow-md z-20 left-2 top-2'></div>
-    <div class='absolute w-full h-full bg-gray-100 rounded-lg drop-shadow-md z-10 left-4 top-4'></div>
-</div> -->
