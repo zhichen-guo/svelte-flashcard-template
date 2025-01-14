@@ -8,6 +8,14 @@ export const names_to_slug = [
     {
         name: "Circle of Fourths",
         slug: "circle-of-fourths"
+    },
+    {
+        name: "test list 1",
+        slug: "test-list-1"
+    },
+    {
+        name: "test list 2",
+        slug: "test-list-2"
     }
 ]
 
