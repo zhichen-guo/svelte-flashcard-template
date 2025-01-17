@@ -1,5 +1,5 @@
 <script>
-    let { data } = $props();
+    const { data } = $props();
 </script>
 
 <h1 class="text-3xl font-bold text-center pt-8 pb-10">Sets</h1>

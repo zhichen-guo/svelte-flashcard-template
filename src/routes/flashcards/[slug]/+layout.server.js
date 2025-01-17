@@ -7,6 +7,7 @@ export function load({ params }) {
     if (!set) error(404);
     
     return { 
-        set
+        set,
+        size: set.cards.length
     };
 }

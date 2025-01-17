@@ -1,9 +1,67 @@
 <script>
-    let { data } = $props();
+    import { fly } from "svelte/transition";
+    import Card from "$lib/components/card.svelte";
+    const { data } = $props();
+    const set_size = data.set.cards.length - 1;
+    let card_index = $state(0);
+    let card = $derived(data.set.cards[card_index]);
+    let flip = $state(false);
+    let visible = $state(true);
+
+    function forward() {
+        card_index = (card_index == set_size) ? 0 : card_index + 1;
+    }
+
+    function backward() {
+        card_index = (card_index == 0) ? set_size : card_index - 1;
+    }
+
+    function onkeydown(event) {
+        switch(event.keyCode) {
+            case 37:
+                backward();
+                break;
+            case 39:
+                forward();
+                break;
+            case 32:
+                flip = !flip;
+                break;
+        }
+    }    
 </script>
 
 <h1 class="text-3xl font-bold text-center pt-8 pb-10">{data.set.name}</h1>
-<div class="flex flex-wrap justify-around gap-10 px-10">
+<div class="flex items-center justify-center py-8">
+    <div>
+        {#if visible}
+            <div transition:fly={{ x: 100 }}>
+                <Card flip={flip} front={card.front} back={card.back} /> 
+            </div>
+        {:else}
+            <div transition:fly={{ x: -100 }}>
+                <Card flip={flip} front={card.front} back={card.back} /> 
+            </div>
+        {/if}
+
+        <button onclick={() => {visible = !visible}}>hi</button>
+
+        <div class="grid grid-cols-3 gap-x-3">
+            <button onclick={backward} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                &lt;
+            </button>
+            <button onclick={() => {flip = !flip}} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                { flip ? "hide" : "show" } 
+            </button>
+            <button onclick={forward} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                &gt;
+            </button>
+        </div>
+    </div>
+</div>
+
+<svelte:window {onkeydown} />
+<!-- <div class="flex flex-wrap justify-around gap-10 px-10">
     {#each data.set.cards as { front, back }}
         <div class="h-56 max-w-md min-w-96 basis-1/4 group [perspective:1000px]">
             <div class="relative h-full w-full rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
@@ -21,7 +79,7 @@
             </div>
         </div>
     {/each}
-</div>
+</div> -->
 
 <!-- <div class="h-56 max-w-md min-w-96 basis-1/4 group [perspective:1000px]">
     <div class="relative h-full w-full bg-gray-100 rounded-lg drop-shadow-md transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
