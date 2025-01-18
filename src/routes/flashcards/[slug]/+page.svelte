@@ -6,14 +6,17 @@
     let card_index = $state(0);
     let card = $derived(data.set.cards[card_index]);
     let flip = $state(false);
+    let translate_in = $state(-200);
 
     function forward() {
         flip = false;
+        translate_in = -200;
         card_index = (card_index == set_size) ? 0 : card_index + 1;
     }
 
     function backward() {
         flip = false;
+        translate_in = 200;
         card_index = (card_index == 0) ? set_size : card_index - 1;
     }
 
@@ -35,23 +38,25 @@
 <h1 class="text-3xl font-bold text-center pt-8 pb-10">{data.set.name}</h1>
 <div class="flex items-center justify-center py-8">
     <div>
+        <div class="relative h-60 w-96 my-5">
+            {#key card}
+                <div class="absolute top-0" onclick={() => {flip = !flip}} in:fly={{ x: translate_in }} out:fly={{ x: -translate_in }}>
+                    <Card flip={flip} card={card} />
+                </div>
+            {/key}
+        </div>
+
         <div class="grid grid-cols-3 gap-x-3">
             <button onclick={backward} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 &lt;
             </button>
             <button onclick={() => {flip = !flip}} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                { flip ? "hide" : "show" } 
+                { flip ? "show" : "hide" }
             </button>
             <button onclick={forward} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 &gt;
             </button>
         </div>
-        
-        {#key card}
-            <div in:fly={{ x: -200, delay: 350, duration: 150 }} out:fly={{ x: +200, duration: 150 }}>
-                <Card flip={flip} card={card} />
-            </div>
-        {/key}
     </div>
 </div>
 
