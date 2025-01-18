@@ -1,18 +1,19 @@
 <script>
-    import { fly } from "svelte/transition";
+    import { fly, fade } from "svelte/transition";
     import Card from "$lib/components/card.svelte";
     const { data } = $props();
     const set_size = data.set.cards.length - 1;
     let card_index = $state(0);
     let card = $derived(data.set.cards[card_index]);
     let flip = $state(false);
-    let visible = $state(true);
 
     function forward() {
+        flip = false;
         card_index = (card_index == set_size) ? 0 : card_index + 1;
     }
 
     function backward() {
+        flip = false;
         card_index = (card_index == 0) ? set_size : card_index - 1;
     }
 
@@ -34,18 +35,6 @@
 <h1 class="text-3xl font-bold text-center pt-8 pb-10">{data.set.name}</h1>
 <div class="flex items-center justify-center py-8">
     <div>
-        {#if visible}
-            <div transition:fly={{ x: 100 }}>
-                <Card flip={flip} front={card.front} back={card.back} /> 
-            </div>
-        {:else}
-            <div transition:fly={{ x: -100 }}>
-                <Card flip={flip} front={card.front} back={card.back} /> 
-            </div>
-        {/if}
-
-        <button onclick={() => {visible = !visible}}>hi</button>
-
         <div class="grid grid-cols-3 gap-x-3">
             <button onclick={backward} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 &lt;
@@ -57,6 +46,12 @@
                 &gt;
             </button>
         </div>
+        
+        {#key card}
+            <div in:fly={{ x: -200, delay: 350, duration: 150 }} out:fly={{ x: +200, duration: 150 }}>
+                <Card flip={flip} card={card} />
+            </div>
+        {/key}
     </div>
 </div>
 
