@@ -98,7 +98,7 @@
                 &lt;
             </button>
             <button onclick={(event) => {event.target.blur(); flipped = !flipped}} class="col-span-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                { flipped ? "hide" : "show" }
+                <p>{ flipped ? "hide" : "show" } answer</p>
             </button>
             <button onclick={(event) => {event.target.blur(); change_card("forward")}} class="col-span-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 &gt;
