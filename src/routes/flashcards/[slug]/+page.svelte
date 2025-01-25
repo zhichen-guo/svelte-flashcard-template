@@ -105,7 +105,7 @@
             </button>
         
             <div class="col-end-6 col-span-2 text-right">
-                <input type="checkbox" name="shuffle" checked={shuffled} onclick={shuffle}/>
+                <input type="checkbox" name="shuffle" checked={shuffled} onclick={(event) => {event.target.blur(); shuffle()}}/>
                 <label for="shuffle">Shuffle</label>
             </div>
         </div>
