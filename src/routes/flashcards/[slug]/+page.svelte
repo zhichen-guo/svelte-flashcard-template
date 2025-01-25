@@ -65,7 +65,7 @@
             {#key shuffled}
                 <div in:scale={{ start: 0.3, opacity: 0.1 }} out:scale={{ start: 0.3, opacity: 0.1 }}>
                 {#key card}
-                    <div class="absolute top-0" role="switch" in:fly={{ x: translate_in }} out:fly={{ x: -translate_in }}>
+                    <div class="absolute top-0" role="switch" in:fly={{ x: -translate_in }} out:fly={{ x: translate_in }}>
                         <div class="h-60 w-96 [perspective:1000px]">
                             <div class="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] {flipped ? '[transform:rotateX(180deg)]' : ''}">
                                 <div class="absolute w-full h-full rounded-xl bg-white border-4 border-gray-200 [backface-visibility:hidden]">
@@ -95,13 +95,13 @@
             </div>
 
             <button onclick={(event) => {event.target.blur(); change_card("backward")}} class="col-span-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                &lt;
+                &#8592;
             </button>
             <button onclick={(event) => {event.target.blur(); flipped = !flipped}} class="col-span-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                <p>{ flipped ? "hide" : "show" } answer</p>
+                <p>{ flipped ? "hide" : "show" } answer <span class="opacity-75">(space)</span></p>
             </button>
             <button onclick={(event) => {event.target.blur(); change_card("forward")}} class="col-span-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                &gt;
+                &#8594;
             </button>
         
             <div class="col-end-6 col-span-2 text-right">
