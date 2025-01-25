@@ -73,7 +73,7 @@
                                         {@render card_face(card.front)}
                                     </div>
                                 </div>
-                                <div class="absolute w-full h-full rounded-xl bg-white border-4 border-gray-200 [backface-visibility:hidden] [transform:rotateX(-180deg)]">
+                                <div class="absolute w-full h-full rounded-xl bg-gray-100 border-4 border-gray-200 [backface-visibility:hidden] [transform:rotateX(-180deg)]">
                                     <div class="h-full flex items-center justify-center">
                                         {@render card_face(card.back)}
                                     </div>
